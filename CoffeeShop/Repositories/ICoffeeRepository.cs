@@ -9,5 +9,6 @@ namespace CoffeeShop.Repositories
         Coffee Get(int id);
         List<Coffee> GetAll();
         void Update(Coffee coffee);
+        void Add(Coffee coffee);
     }
 }
