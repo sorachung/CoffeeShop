@@ -23,7 +23,7 @@ namespace CoffeeShop.Controllers
         }
 
         // https://localhost:5001/api/coffee/1
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             var coffee = _coffeeRepository.Get(id);

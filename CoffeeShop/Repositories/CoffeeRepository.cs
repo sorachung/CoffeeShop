@@ -31,7 +31,8 @@ namespace CoffeeShop.Repositories
                                                Title, 
                                                BeanVarietyId, 
                                                [Name], 
-                                               Region 
+                                               Region,
+                                               Notes
                                           FROM Coffee c
                                                JOIN BeanVariety bv ON bv.Id = BeanVarietyId";
 
@@ -47,8 +48,10 @@ namespace CoffeeShop.Repositories
                                 BeanVarietyId = reader.GetInt32(reader.GetOrdinal("BeanVarietyId")),
                                 BeanVariety = new BeanVariety()
                                 {
+                                    Id = reader.GetInt32(reader.GetOrdinal("BeanVarietyId")),
                                     Name = reader.GetString(reader.GetOrdinal("Name")),
                                     Region = reader.GetString(reader.GetOrdinal("Region")),
+                                    Notes = reader.IsDBNull(reader.GetOrdinal("Notes")) ? null : reader.GetString(reader.GetOrdinal("Notes"))
                                 }
                             };
 
@@ -90,6 +93,7 @@ namespace CoffeeShop.Repositories
                                 BeanVarietyId = reader.GetInt32(reader.GetOrdinal("BeanVarietyId")),
                                 BeanVariety = new BeanVariety()
                                 {
+                                    Id = reader.GetInt32(reader.GetOrdinal("BeanVarietyId")),
                                     Name = reader.GetString(reader.GetOrdinal("Name")),
                                     Region = reader.GetString(reader.GetOrdinal("Region")),
                                     Notes = reader.IsDBNull(reader.GetOrdinal("Notes")) ? null : reader.GetString(reader.GetOrdinal("Notes"))
